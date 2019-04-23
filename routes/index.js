@@ -24,15 +24,25 @@ router.get('/ChinhSuaNguoiDung', function(req, res, next) {
 router.get('/ThongKeDoanhSo', function(req, res, next) {
   res.render('SalesStatistics', { title: 'Express' });
 });
-// Product
+// Booth
+router.get('/DanhSachGianHang', function(req, res, next) {
+  res.render('BoothManagement', { title: 'Express' });
+});
+router.get('/ThemGianHang', function(req, res, next) {
+  res.render('AddBooth', { title: 'Express' });
+});
+router.get('/ChinhSuaGianHang', function(req, res, next) {
+  res.render('EditBooth', { title: 'Express' });
+});
+//Product
 router.get('/DanhSachSanPham', function(req, res, next) {
   res.render('ProductManagement', { title: 'Express' });
 });
-router.get('/ThemSanPham', function(req, res, next) {
-  res.render('AddProduct', { title: 'Express' });
-});
 router.get('/ChinhSuaSanPham', function(req, res, next) {
   res.render('EditProduct', { title: 'Express' });
+});
+router.get('/ThemSanPham', function(req, res, next) {
+  res.render('AddProduct', { title: 'Express' });
 });
 // Order Management
 router.get('/DanhSachDonDatHang', function(req, res, next) {
