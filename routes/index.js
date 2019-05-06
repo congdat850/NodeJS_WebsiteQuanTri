@@ -1,58 +1,34 @@
 var express = require('express');
 var router = express.Router();
-
+var UserManagement = require('../Controllers/UsersManagement');
+var usersManagement = new UserManagement();
+var BoothManagement = require('../Controllers/BoothManagement');
+var boothManagement = new BoothManagement();
+var ProductManagement = require('../Controllers/ProductsManagement');
+var productManagement = new ProductManagement();
+var OrderMangagement = require('../Controllers/OrderManagement');
+var orderManagement = new OrderMangagement();
+var Statics = require('../Controllers/Statics');
+var statics = new Statics();
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('Top10Product', { title: 'Express' });
-});
-router.get('/Top10SanPhamBanChay', function(req, res, next) {
-  res.render('Top10Product', { title: 'Express' });
-});
+router.get('/', statics.topTenProducts);
+router.get('/Top10SanPhamBanChay',statics.topTenProducts);
 //User
-router.get('/TatCaNguoiDung', function(req, res, next) {
-  res.render('UserManagement', { title: 'Express' });
-});
-
-router.get('/ThemNguoiDung', function(req, res, next) {
-  res.render('AddUser', { title: 'Express' });
-});
-
-router.get('/ChinhSuaNguoiDung', function(req, res, next) {
-  res.render('EditUser', { title: 'Express' });
-});
-
-router.get('/ThongKeDoanhSo', function(req, res, next) {
-  res.render('SalesStatistics', { title: 'Express' });
-});
+router.get('/TatCaNguoiDung', usersManagement.showUser);
+router.get('/ThemNguoiDung', usersManagement.addUser);
+router.get('/ChinhSuaNguoiDung', usersManagement.editUser);
+router.get('/ThongKeDoanhSo', statics.salesStatics);
 // Booth
-router.get('/DanhSachGianHang', function(req, res, next) {
-  res.render('BoothManagement', { title: 'Express' });
-});
-router.get('/ThemGianHang', function(req, res, next) {
-  res.render('AddBooth', { title: 'Express' });
-});
-router.get('/ChinhSuaGianHang', function(req, res, next) {
-  res.render('EditBooth', { title: 'Express' });
-});
+router.get('/DanhSachGianHang', boothManagement.showListBooth);
+router.get('/ThemGianHang', boothManagement.addBooth);
+router.get('/ChinhSuaGianHang', boothManagement.editBooth);
 //Product
-router.get('/DanhSachSanPham', function(req, res, next) {
-  res.render('ProductManagement', { title: 'Express' });
-});
-router.get('/ChinhSuaSanPham', function(req, res, next) {
-  res.render('EditProduct', { title: 'Express' });
-});
-router.get('/ThemSanPham', function(req, res, next) {
-  res.render('AddProduct', { title: 'Express' });
-});
+router.get('/DanhSachSanPham', productManagement.showListProducts);
+router.get('/ChinhSuaSanPham', productManagement.editProduct);
+router.get('/ThemSanPham', productManagement.addProduct);
 // Order Management
-router.get('/DanhSachDonDatHang', function(req, res, next) {
-  res.render('OrderManagement', { title: 'Express' });
-});
-router.get('/ThemDonDatHang', function(req, res, next) {
-  res.render('AddOrder', { title: 'Express' });
-});
-router.get('/ChinhSuaDonDatHang', function(req, res, next) {
-  res.render('EditOrder', { title: 'Express' });
-});
+router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
+router.get('/ThemDonDatHang', orderManagement.addOrder);
+router.get('/ChinhSuaDonDatHang', orderManagement.editOrder);
 
 module.exports = router;
