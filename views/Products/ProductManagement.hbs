@@ -28,81 +28,31 @@
                 </div>
             </div>
         </div>
+        
         <div class="courses-area">
             <div class="container-fluid">
                 <div class="row">
+                    {{#each data}}
                     
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         
                         <div class="courses-inner res-mg-b-30">
                             <div class="courses-title">
-                                <a href="#"><img src="img/courses/ss-s10.jpg" alt=""></a>
-                                <h2>SamSung S10</h2>
+                                <a href="#"><img src="{{this.img}}" alt=""></a>
+                                <h2>{{this.name}}</h2>
                             </div>
                             
                             <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Giá sản phẩm:</b> 17 400 000 đ</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> Samsung</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số lượng sản phẩm:</b> 100+</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Giá sản phẩm:</b> {{this.newPrice}}</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> {{this.producer}}</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Số lượng sản phẩm:</b>{{this.quatitySold}}</p>
                             </div>
                             <div class="product-buttons">
                                 <a href="/ChinhSuaSanPham"> <button type="button" class="button-default cart-btn">Chỉnh sửa</button></a>
-                               
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/ss-note8.jpg" alt=""></a>
-                                <h2>Illustrator CC 2018</h2>
-                            </div>
-                            
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Giá sản phẩm:</b> 12 990 000 đ</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> Samsung</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số lượng sản phẩm:</b> 20</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Chỉnh sửa</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner res-mg-t-30 dk-res-t-pro-30">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/ss-s9.jpg" alt=""></a>
-                                <h2>Samsung S9</h2>
-                            </div>
-                            
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Giá sản phẩm:</b> 22 000 000 đ</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> Samsung</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số lượng sản phẩm:</b> 30</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Chỉnh sửa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner res-mg-t-30 dk-res-t-pro-30">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/ss-m20.jpg" alt=""></a>
-                                <h2>Samsung M20</h2>
-                            </div>
-                          
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Giá: </b>4 300 000 đ</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> Jane Doe</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số lượng sản phẩm:</b> 100+</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Chỉnh sửa</button>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
                 <div class="row mg-b-15">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -186,4 +136,6 @@
                     </div>
                 </div>
             </div>
+            
         </div>
+        

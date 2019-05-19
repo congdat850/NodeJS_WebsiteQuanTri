@@ -1,7 +1,12 @@
+var contactModel=require('../model/model.js');
+
 class ProductsManagement{
 
     showListProducts(req,res){
-        return res.render('Products/ProductManagement', { title: 'Express' });
+        contactModel.find({},function(err,dulieu){
+            return res.render('Products/ProductManagement', { title: 'Sản phẩm',data:dulieu });
+        })
+        
     }
 
     addProduct(req,res){
