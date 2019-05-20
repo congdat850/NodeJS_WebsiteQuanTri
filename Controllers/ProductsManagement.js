@@ -14,7 +14,27 @@ class ProductsManagement{
     }
 
     editProduct(req,res){
-        return res.render('Products/EditProduct', { title: 'Express' });
+        // Get Product ID
+        var productID = req.query.id;
+        var query = {
+            "productID" : productID
+        };
+        contactModel.find(query,function(err,productData){
+            if (productData.length !== 1) return res.redirect('/DanhSachSanPham');
+            return res.render('Products/EditProduct', { title: 'Chỉnh sửa sản phẩm',data: productData[0] });
+        })
+    }
+
+    postEditProduct(req,res){
+        // Get Product ID
+        var productID = req.query.id;
+        var query = {
+            "productID" : productID
+        };
+        contactModel.findOneAndUpdate(query,req.body,{upsert:true},function(err,doc){
+            if (err) return res.send(500, { error: err });
+            return res.redirect('/ChinhSuaSanPham?id='+ productID);
+        });
     }
 
     deleteProduct(req,res){

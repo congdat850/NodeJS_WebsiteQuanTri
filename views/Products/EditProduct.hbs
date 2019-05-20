@@ -42,14 +42,14 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
-                                                    <form action="/upload" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
+                                                    <form method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
-                                                                    <input name="coursename" type="text" class="form-control" placeholder="Tên sản phẩm" value="Samsung s10">
+                                                                    <input name="name" type="text" class="form-control" placeholder="Tên sản phẩm" value="{{data.name}}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="duration" type="text" class="form-control" placeholder="Giá sản phẩm" value="17 400 000 đ">
+                                                                    <input name="newPrice" type="text" class="form-control" placeholder="Giá sản phẩm" value="{{data.newPrice}}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <select name="Loại sản phẩm" class="form-control">
@@ -61,7 +61,7 @@
 																		</select>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="price" type="number" class="form-control" placeholder="Số lượng sản phẩm" value="20">
+                                                                    <input name="quantity" type="number" class="form-control" placeholder="Số lượng sản phẩm" value="{{data.quantity}}">
                                                                 </div>
                                                                 <div class="form-group alert-up-pd">
                                                                     <div class="dz-message needsclick download-custom">
@@ -69,13 +69,13 @@
                                                                         <h2 class="edudropnone">Thêm hình ảnh sản phẩm</h2>
                                                                         <p class="edudropnone"><span class="note needsclick">(This is just a demo dropzone. Selected image is <strong>not</strong> actually uploaded.)</span>
                                                                         </p>
-                                                                        <input name="imageico" class="hd-pro-img" type="text" />
+                                                                        {{!-- <input name="" class="hd-pro-img" type="text" /> --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
                                                                 <div class="form-group">
-                                                                    <textarea name="description" placeholder="Miêu tả sản phẩm"></textarea>
+                                                                    <textarea name="description" placeholder="Miêu tả sản phẩm" value="{{data.description}}">{{data.description}}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

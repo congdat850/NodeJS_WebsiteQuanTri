@@ -15,6 +15,7 @@ var contact = new mongoose.Schema({
     categoryID: 'number',
     dateUpdate: 'string',
     country: 'string',
+    quantity: 'number',
     quantitySold: 'number'
 },{collection:'Products'});
 module.exports=mongoose.model('Tank', contact);
