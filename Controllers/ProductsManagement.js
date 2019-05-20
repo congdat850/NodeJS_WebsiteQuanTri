@@ -16,6 +16,12 @@ class ProductsManagement{
     editProduct(req,res){
         return res.render('Products/EditProduct', { title: 'Express' });
     }
+
+    deleteProduct(req,res){
+        var id=req.params.idDelete;
+        contactModel.findByIdAndRemove(id).exec();
+        return res.redirect('/DanhSachSanPham');
+    }
 }
 
 module.exports = ProductsManagement;

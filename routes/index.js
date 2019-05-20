@@ -26,6 +26,7 @@ router.get('/ChinhSuaGianHang', boothManagement.editBooth);
 router.get('/DanhSachSanPham', productManagement.showListProducts);
 router.get('/ChinhSuaSanPham', productManagement.editProduct);
 router.get('/ThemSanPham', productManagement.addProduct);
+router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
 // Order Management
 router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
 router.get('/ThemDonDatHang', orderManagement.addOrder);

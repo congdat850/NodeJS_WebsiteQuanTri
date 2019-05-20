@@ -1,4 +1,7 @@
 var mongoose=require('mongoose');
+var url = "mongodb://hoaidien:hoaidien0510@ds155606.mlab.com:55606/nodejs";
+mongoose.connect(url, {useNewUrlParser: true});
+
 
 var contact = new mongoose.Schema({
     productID: 'string',
@@ -13,5 +16,5 @@ var contact = new mongoose.Schema({
     dateUpdate: 'string',
     country: 'string',
     quantitySold: 'number'
-},{collection:'product'});
+},{collection:'Products'});
 module.exports=mongoose.model('Tank', contact);
