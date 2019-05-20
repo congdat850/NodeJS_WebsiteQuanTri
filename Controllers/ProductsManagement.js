@@ -1,4 +1,5 @@
 var contactModel=require('../model/model.js');
+var nameImg;
 
 class ProductsManagement{
 
@@ -12,6 +13,22 @@ class ProductsManagement{
     addProduct(req,res){
         return res.render('Products/AddProduct', { title: 'Express' });
     }
+
+    sendImageProduct()
+    {
+    var multer  = require('multer');
+    var storage = multer.diskStorage({ // chỉ ra đường dẫn upload
+      destination: function (req, file, cb) {
+        cb(null, './public/images')
+      },
+      filename: function (req, file, cb) {
+          nameImg=Date.now()+ '-' +file.originalname
+        cb(null, nameImg )
+      }
+    })
+    var upload = multer({ storage: storage })
+        return upload
+    }
     postAddProduct(req,res)
     {
         var sanpham={
@@ -19,7 +36,7 @@ class ProductsManagement{
     'name': req.body.name,
     'oldPrice': req.body.oldPrice,
     'newPrice': req.body.newPrice,
-    'img': "",
+    'img': "/images/"+nameImg,
     'description': req.body.description,
     'starEvaluate': req.body.starEvaluate,
     'producer': req.body.producer,
@@ -56,7 +73,6 @@ class ProductsManagement{
             return res.redirect('/ChinhSuaSanPham?id='+ productID);
         });
     }
-
     deleteProduct(req,res){
         var id=req.params.idDelete;
         contactModel.findByIdAndRemove(id).exec();

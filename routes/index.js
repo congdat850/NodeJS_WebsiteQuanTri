@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var UserManagement = require('../Controllers/UsersManagement');
 var usersManagement = new UserManagement();
 var BoothManagement = require('../Controllers/BoothManagement');
@@ -26,7 +27,7 @@ router.get('/ChinhSuaGianHang', boothManagement.editBooth);
 router.get('/DanhSachSanPham', productManagement.showListProducts);
 router.get('/ChinhSuaSanPham', productManagement.editProduct);
 router.get('/ThemSanPham', productManagement.addProduct);
-router.post('/ThemSanPham', productManagement.postAddProduct);
+router.post('/ThemSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postAddProduct);
 router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
 router.post('/ChinhSuaSanPham',productManagement.postEditProduct);
 // Order Management
