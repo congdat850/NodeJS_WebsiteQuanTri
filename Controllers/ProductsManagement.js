@@ -12,6 +12,26 @@ class ProductsManagement{
     addProduct(req,res){
         return res.render('Products/AddProduct', { title: 'Express' });
     }
+    postAddProduct(req,res)
+    {
+        var sanpham={
+    'productID': req.body.productID,
+    'name': req.body.name,
+    'oldPrice': req.body.oldPrice,
+    'newPrice': req.body.newPrice,
+    'img': "",
+    'description': req.body.description,
+    'starEvaluate': req.body.starEvaluate,
+    'producer': req.body.producer,
+    'categoryID': "",
+    'dateUpdate': req.body.dateUpdate,
+    'country': req.body.country,
+    'quantitySold':req.body.quantitySold
+        }
+        var dulieu= new contactModel(sanpham);
+        dulieu.save();
+       return res.redirect('/DanhSachSanPham')
+    }
 
     editProduct(req,res){
         // Get Product ID

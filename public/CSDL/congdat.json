@@ -1,16 +1,16 @@
 {
-    "productID": "P002",
-    "name": "Iphone XS Max",
-    "oldPrice": "50.000.000",
-    "newPrice": "40.000.000",
-    "img": "/img/product/IPXs_Max.jpg",
-    "description": "Iphone XS Max. Một sản phẩm mới nhất của Apple",
-    "starEvaluate": "5",
-    "producer": "Apple",
+    "productID": "P002", //
+    "name": "Iphone XS Max", //
+    "oldPrice": "50.000.000", //
+    "newPrice": "40.000.000", //
+    "img": "/img/product/IPXs_Max.jpg", //
+    "description": "Iphone XS Max. Một sản phẩm mới nhất của Apple",//
+    "starEvaluate": "5", 
+    "producer": "Apple",//
     "categoryID": "",
     "dateUpdate": "13/05/2019",
-    "country": "Mỹ",
-    "quantitySold": "12"
+    "country": "Mỹ",//
+    "quantitySold": "12" //
 }
 
 {
