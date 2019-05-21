@@ -14,7 +14,7 @@ class ProductsManagement{
         return res.render('Products/AddProduct', { title: 'Express' });
     }
 
-    sendImageProduct()
+    sendImageProduct() // hàm gửi hình ảnh lên
     {
     var multer  = require('multer');
     var storage = multer.diskStorage({ // chỉ ra đường dẫn upload
@@ -26,7 +26,20 @@ class ProductsManagement{
         cb(null, nameImg )
       }
     })
-    var upload = multer({ storage: storage })
+
+    function checkFileUpload (req, file, cb) {
+
+        if(!file.originalname.match(/\.(jpg|png|gif|jpeg)$/))
+        {
+            cb(new Error('bạn chỉ được upload file ảnh !'));
+        }
+        else 
+        {
+            cb(null,true)
+        }
+      }
+
+    var upload = multer({ storage: storage,fileFilter:checkFileUpload })
         return upload
     }
     postAddProduct(req,res)
@@ -47,6 +60,7 @@ class ProductsManagement{
         }
         var dulieu= new contactModel(sanpham);
         dulieu.save();
+        nameImg=null;
        return res.redirect('/DanhSachSanPham')
     }
 
@@ -68,8 +82,27 @@ class ProductsManagement{
         var query = {
             "productID" : productID
         };
-        contactModel.findOneAndUpdate(query,req.body,{upsert:true},function(err,doc){
+        
+        var sanpham={
+            'productID': req.body.productID,
+            'name': req.body.name,
+            'oldPrice': req.body.oldPrice,
+            'newPrice': req.body.newPrice,
+            'description': req.body.description,
+            'starEvaluate': req.body.starEvaluate,
+            'producer': req.body.producer,
+            'categoryID': "",
+            'dateUpdate': req.body.dateUpdate,
+            'country': req.body.country,
+            'quantitySold':req.body.quantitySold
+                }
+            if(nameImg!=null)
+            {
+                sanpham.img="/images/"+nameImg
+            }
+        contactModel.findOneAndUpdate(query,sanpham,{upsert:true},function(err,doc){
             if (err) return res.send(500, { error: err });
+            nameImg=null;
             return res.redirect('/ChinhSuaSanPham?id='+ productID);
         });
     }

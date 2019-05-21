@@ -29,7 +29,7 @@ router.get('/ChinhSuaSanPham', productManagement.editProduct);
 router.get('/ThemSanPham', productManagement.addProduct);
 router.post('/ThemSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postAddProduct);
 router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
-router.post('/ChinhSuaSanPham',productManagement.postEditProduct);
+router.post('/ChinhSuaSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postEditProduct);
 // Order Management
 router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
 router.get('/ThemDonDatHang', orderManagement.addOrder);
