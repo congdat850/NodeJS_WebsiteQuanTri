@@ -28,20 +28,17 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="courses-area">
             <div class="container-fluid">
                 <div class="row">
                     {{#each data}}
-                    
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        
                         <div class="courses-inner res-mg-b-30">
                             <div class="courses-title">
                                 <a href="#"><img src="{{this.img}}" alt=""></a>
                                 <h2>{{this.name}}</h2>
                             </div>
-                            
                             <div class="course-des">
                                 <p><span><i class="fa fa-clock"></i></span> <b>Giá sản phẩm:</b> {{this.newPrice}}</p>
                                 <p><span><i class="fa fa-clock"></i></span> <b>Loại sản phẩm:</b> {{this.producer}}</p>
@@ -56,7 +53,7 @@
                             </div>
                     </div>
                 </div>
-                    {{/each}}
+                 {{/each}}
             </div>
         </div>
     </div>

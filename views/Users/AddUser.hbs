@@ -35,72 +35,64 @@
                         <div class="product-payment-inner-st">
                             <ul id="myTabedu1" class="tab-review-design">
                                 <li class="active"><a href="#description">Thông tin cá nhân</a></li>
-                                <li><a href="#reviews"> Xác nhận mật khẩu</a></li>
+                               
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
-                                                <form id="add-department" action="#" class="add-department">
+                                                <form method="POST" id="add-department" action="#" class="add-department">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <input name="name" type="text" class="form-control" placeholder="Họ tên người dùng">
+                                                                <input name="userID" type="text" class="form-control" placeholder="ID người dùng">
                                                             </div>
                                                             <div class="form-group">
-                                                                    <input name="finish" id="finish" type="text" class="form-control" placeholder="Ngày sinh">
+                                                                <input name="userName" type="text" class="form-control" placeholder="Họ tên người dùng">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <input name="dateOfBirth" id="finish" type="text" class="form-control" placeholder="Ngày sinh">
                                                             </div>
                                                             <div class="form-group">
                                                                     <select name="gender" class="form-control">
 																		<option value="none" selected="" disabled="">Giới tính</option>
-																		<option value="0">Nam</option>
-																		<option value="1">Nữ</option>
+																		<option value="Nam">Nam</option>
+																		<option value="Nu">Nữ</option>
 																	</select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <input name="email" type="email" class="form-control" placeholder="Email">
+                                                                    <select name="authority" class="form-control">
+																		<option value="none" selected="" disabled="">Mức quyền</option>
+																		<option value="admin">admin</option>
+																		<option value="user">user</option>
+																	</select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <input name="phone" type="number" class="form-control" placeholder="Số điện thoại">
+                                                                <input name="email" type="text" class="form-control" placeholder="Email">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="phoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
                                                             </div>
                                                             
                                                             <div class="form-group">
                                                                     <input name="address" type="text" class="form-control" placeholder="Địa chỉ">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <input name="password" type="text" class="form-control" placeholder="Mật khẩu">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Tiếp theo</button>
+                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Hoàn tất thêm mới</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-tab-list tab-pane fade" id="reviews">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="review-content-section">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="devit-card-custom">
-                                                            <div class="form-group">
-                                                                <input type="password" class="form-control" placeholder="Mật khẩu">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
-                                                            </div>
-                                                            <a href="#!" class="btn btn-primary waves-effect waves-light">Thêm người dùng</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -16,8 +16,12 @@ router.get('/', statics.topTenProducts);
 router.get('/Top10SanPhamBanChay',statics.topTenProducts);
 //User
 router.get('/TatCaNguoiDung', usersManagement.showUser);
+router.get('/XoaNguoiDung/:idDelete', usersManagement.deleteUser);
 router.get('/ThemNguoiDung', usersManagement.addUser);
+router.post('/ThemNguoiDung', usersManagement.postAddUser);
 router.get('/ChinhSuaNguoiDung', usersManagement.editUser);
+router.post('/ChinhSuaNguoiDung', usersManagement.postEditUser);
+
 router.get('/ThongKeDoanhSo', statics.salesStatics);
 // Booth
 router.get('/DanhSachGianHang', boothManagement.showListBooth);
