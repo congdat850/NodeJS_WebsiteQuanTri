@@ -11,9 +11,6 @@ class UserManagement{
         var nguoidung={
     'userID': req.body.userID,
     'userName': req.body.userName,
-    'dateOfBirth': req.body.dateOfBirth,
-    'gender': req.body.gender,
-    'address': req.body.address,
     'authority': req.body.authority,
     'email': req.body.email,
     'phoneNumber': req.body.phoneNumber,
@@ -45,9 +42,6 @@ class UserManagement{
         var nguoidung={
             'userID': req.body.userID,
             'userName': req.body.userName,
-            'dateOfBirth': req.body.dateOfBirth,
-            'gender': req.body.gender,
-            'address': req.body.address,
             'authority': req.body.authority,
             'email': req.body.email,
             'phoneNumber': req.body.phoneNumber,

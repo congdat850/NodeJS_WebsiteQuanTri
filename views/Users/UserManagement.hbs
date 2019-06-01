@@ -41,29 +41,24 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên người dùng</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Giới tính</th>
-                                        <th>Địa chỉ</th>
                                         <th>Mức quyền</th>
                                         <th>Email</th>
                                         <th>Số điện thoại</th>
-                                        <th>Mật khẩu</th>
                                         <th>Chỉnh sửa</th>
                                     </tr>
                                     {{#each data}}
                                     <tr>
                                         <td>{{this.userID}}</td>
                                         <td>{{this.userName}}</td>
-                                        <td>{{this.dateOfBirth}}</td>
-                                        <td>{{this.gender}}</td>
-                                        <td>{{this.address}}</td>
                                         <td>{{this.authority}}</td>
                                         <td>{{this.email}}</td>
                                         <td>{{this.phoneNumber}}</td>
-                                        <td>{{this.password}}</td>
+                                        
                                         <td>
                                             <a href="/ChinhSuaNguoiDung?id={{this.userID}}"><button data-toggle="tooltip" title="Chỉnh sửa" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                             <a href="/XoaNguoiDung/{{this.id}}"> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                             <button data-toggle="tooltip" title="xem" class="pd-setting-ed"><i class="far fa-address-card"></i></button>
+                                             <span ></span>
                                         </td>
                                     </tr>
                                     {{/each}}
