@@ -1,7 +1,11 @@
- {{> header}}
+ {{#if isLogin}}
+      {{> header}}
+    {{/if}}
 
     {{{body}}}
 
-{{> footer}}
+    {{#if isLogin}}
+      {{> footer}}
+{{/if}}
 
     

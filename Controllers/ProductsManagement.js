@@ -5,13 +5,13 @@ class ProductsManagement{
 
     showListProducts(req,res){
         contactModel.find({},function(err,dulieu){
-            return res.render('Products/ProductManagement', { title: 'Sản phẩm',data:dulieu });
+            return res.render('Products/ProductManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
         })
         
     }
 
     addProduct(req,res){
-        return res.render('Products/AddProduct', { title: 'Express' });
+        return res.render('Products/AddProduct', { isLogin: true,title: 'Express' });
     }
 
     sendImageProduct() // hàm gửi hình ảnh lên
@@ -72,7 +72,7 @@ class ProductsManagement{
         };
         contactModel.find(query,function(err,productData){
             if (productData.length !== 1) return res.redirect('/DanhSachSanPham');
-            return res.render('Products/EditProduct', { title: 'Chỉnh sửa sản phẩm',data: productData[0] });
+            return res.render('Products/EditProduct', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: productData[0] });
         })
     }
 

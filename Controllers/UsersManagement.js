@@ -2,7 +2,7 @@ var contactModel=require('../model/modelUsers.js');
 
 class UserManagement{
     addUser(req,res){
-        return res.render('Users/AddUser', { title: 'Express' });
+        return res.render('Users/AddUser', { isLogin: true,title: 'Express' });
     }
 
    
@@ -24,11 +24,11 @@ class UserManagement{
         // Get Product ID
         var userID = req.query.id;
         var query = {
-            "userID" : userID
+            "_id" : userID
         };
         contactModel.find(query,function(err,userData){
             if (userData.length !== 1) return res.redirect('/DanhSachNguoiDung');
-            return res.render('Users/EditUser', { title: 'Chỉnh sửa sản phẩm',data: userData[0] });
+            return res.render('Users/EditUser', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: userData[0] });
         })
     }
 
@@ -36,7 +36,7 @@ class UserManagement{
         // Get Product ID
         var userID = req.query.id;
         var query = {
-            "userID" : userID
+            "_id" : userID
         };
         
         var nguoidung={
@@ -51,7 +51,7 @@ class UserManagement{
         contactModel.findOneAndUpdate(query,nguoidung,{upsert:true},function(err,doc){
             if (err) return res.send(500, { error: err });
             
-            return res.redirect('/ChinhSuaNguoiDung?id='+ userID);
+            return res.redirect('/TatCaNguoiDung');
         });
     }
 
@@ -60,7 +60,7 @@ class UserManagement{
     showUser(req,res){
 
         contactModel.find({},function(err,dulieu){
-            return res.render('Users/UserManagement', { title: 'Sản phẩm',data:dulieu });
+            return res.render('Users/UserManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
         })
     }
 

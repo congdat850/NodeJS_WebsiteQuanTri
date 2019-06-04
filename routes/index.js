@@ -9,10 +9,22 @@ var ProductManagement = require('../Controllers/ProductsManagement');
 var productManagement = new ProductManagement();
 var OrderMangagement = require('../Controllers/OrderManagement');
 var orderManagement = new OrderMangagement();
+var LoginController = require('../Controllers/LoginController');
+var loginController = new LoginController();
 var Statics = require('../Controllers/Statics');
 var statics = new Statics();
+// Login
+router.get('/login',loginController.getLogin);
+router.post('/login',loginController.postLogin);
+router.get('/',loginController.getLogin);
+
+router.get('/sign-up',loginController.getSignUp);
+router.post('/sign-up',loginController.postSignUp);
+router.get('/forgotPass',loginController.getForgotPass);
+router.get('/update-info',loginController.getUpdateInfo);
+router.post('/update-info',loginController.postUpdateInfo);
 /* GET home page. */
-router.get('/', statics.topTenProducts);
+router.get('/home',statics.topTenProducts);
 router.get('/Top10SanPhamBanChay',statics.topTenProducts);
 //User
 router.get('/TatCaNguoiDung', usersManagement.showUser);
