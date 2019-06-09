@@ -33,6 +33,7 @@ router.get('/ThemNguoiDung', usersManagement.addUser);
 router.post('/ThemNguoiDung', usersManagement.postAddUser);
 router.get('/ChinhSuaNguoiDung', usersManagement.editUser);
 router.post('/ChinhSuaNguoiDung', usersManagement.postEditUser);
+router.get('/ThongTinChiTiet', usersManagement.getInformation);
 
 router.get('/ThongKeDoanhSo', statics.salesStatics);
 // Booth

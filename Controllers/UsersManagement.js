@@ -69,12 +69,6 @@ class UserManagement{
     }
 
     showUser(req,res){
-
-        // contactModel.find({},function(err,dulieu){
-        //     return res.render('Users/UserManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
-        // })
-
-
     var perPage = 10
     var page = req.query.page || 1
 
@@ -94,6 +88,19 @@ class UserManagement{
         var id=req.params.idDelete;
         contactModel.findByIdAndRemove(id).exec();
         return res.redirect('/TatCaNguoiDung');
+    }
+
+
+    getInformation(req,res)
+    {
+        var userID = req.query.id;
+        var query = {
+            "_id" : userID
+        };
+        contactModel.find(query,function(err,userData){
+            if (userData.length !== 1) return res.redirect('/DanhSachNguoiDung');
+            return res.render('Users/UserInformation', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: userData });
+        })
     }
 
 }
