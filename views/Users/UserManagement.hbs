@@ -39,7 +39,7 @@
                             <div class="asset-inner">
                                 <table>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>STT</th>
                                         <th>Tên người dùng</th>
                                         <th>Mức quyền</th>
                                         <th>Email</th>
@@ -48,7 +48,7 @@
                                     </tr>
                                     {{#each data}}
                                     <tr>
-                                        <td>{{this.userID}}</td>
+                                        <td>{{@index}}</td>
                                         <td>{{this.userName}}</td>
                                         <td>{{this.authority}}</td>
                                         <td>{{this.email}}</td>
@@ -64,19 +64,19 @@
                                     {{/each}}
                                 </table>
                             </div>
-                            <div class="custom-pagination">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                           <div class="row">
+                               <div class="col-md-12">
+                                 <hd-paging current-page="{{current}}" max-page="{{pages}}" for="TatCaNguoiDung"></hd-paging>
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<script>
+$(document).ready(function(){
+    $('ul.navbar-nav li').removeClass('active');
+    $('li.category').addClass('active');
+})
+</script>

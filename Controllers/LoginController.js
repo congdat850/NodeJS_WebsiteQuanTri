@@ -2,6 +2,7 @@ var Model = require('../Model/modelLogin');
 var model = new Model();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
 class LoginController{
     getLogin(req,res){
         return res.render('Login/login',{isLogin: false, title: "Đăng nhập"});
@@ -42,7 +43,8 @@ class LoginController{
         var userName = req.body.username;
         var password = req.body.pass;
         // Get Info of account
-        var account = await model.getAccount({"email" : userName});
+        var account = await model.getAccount({"email" : userName,
+    "authority": "admin"});
         if(account.length === 1){
             var result = await bcrypt.compare(password, account[0].password);
             console.log(result);

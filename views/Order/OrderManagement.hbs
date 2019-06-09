@@ -44,126 +44,47 @@
                                         <th>Tên SP</th>
                                         <th>Trạng thái đơn hàng</th>
                                         <th>Tên người nhận</th>
+                                        <th>Email người nhận</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
                                         <th>Giá sản phẩm</th>
                                         <th>Chỉnh sửa đơn hàng</th>
                                     </tr>
+                                    {{#each order}}
                                     <tr>
-                                        <td>1</td>
-                                        <td><img src="img/courses/ss-m20.jpg" alt="" /></td>
-                                        <td>Samsung m20</td>
+                                        <td>{{@index}}</td>
+                                        <td><img src="{{this.img}}" alt="" /></td>
+                                        <td>{{this.name}}</td>
                                         <td>
-                                            <button class="pd-setting">Đã giao</button>
+                                            <button class="pd-setting">{{this.status}}</button>
                                         </td>
-                                        <td>Nguyễn Công Đạt</td>
-                                        <td>0337564666</td>
-                                        <td>110 Bà Hom Quận 6 TPHCM</td>
-                                        <td>17 000 000 đ</td>
+                                        <td>{{this.userName}}</td>
+                                        <td>{{this.email}}</td>
+                                        <td>{{this.phoneNumber}}</td>
+                                        <td>{{this.address}}</td>
+                                        <td>{{this.newPrice}}</td>
                                         <td>
                                             <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                             
                                             <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img src="img/courses/ss-note8.jpg" alt="" /></td>
-                                        <td>Samsung Note8</td>
-                                        <td>
-                                            <button class="ps-setting">Đang giao</button>
-                                        </td>
-                                        <td>Nguyễn Công An</td>
-                                        <td>0113311313</td>
-                                        <td>TPHCM</td>
-                                        <td>9 000 000 đ</td>
-                                        <td>
-                                            <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img src="img/courses/ss-s9.jpg" alt="" /></td>
-                                        <td>Samsung S9</td>
-                                        <td>
-                                            <button class="ds-setting">Chưa Giao</button>
-                                        </td>
-                                        <td>Đỗ Hoài Diễn</td>
-                                        <td>43434343434</td>
-                                        <td>Huế</td>
-                                        <td>5 000 000</td>
-                                        <td>
-                                           <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img src="img/courses/ss-m20.jpg" alt="" /></td>
-                                        <td>Samsung M20</td>
-                                        <td>
-                                            <button class="pd-setting">Đã giao</button>
-                                        </td>
-                                        <td>Nguyễn Văn C</td>
-                                        <td>4224424242424</td>
-                                        <td>TPHCM</td>
-                                        <td>12 000 000 đ</td>
-                                        <td>
-                                            <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img src="img/courses/ss-s10.jpg" alt="" /></td>
-                                        <td>Samsung s10</td>
-                                        <td>
-                                            <button class="pd-setting">Đã giao</button>
-                                        </td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>32323323232</td>
-                                        <td>TPHCM</td>
-                                        <td>19 000 000</td>
-                                        <td>
-                                            <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img src="img/courses/ss-note8.jpg" alt="" /></td>
-                                        <td>Samsung Note8</td>
-                                        <td>
-                                            <button class="ps-setting">Đang giao</button>
-                                        </td>
-                                        <td>Nguyễn Văn B</td>
-                                        <td>42424242424</td>
-                                        <td>TPHCM</td>
-                                        <td>7 000 000 đ</td>
-                                        <td>
-                                           <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
+                                    {{/each}}
                                 </table>
                             </div>
-                            <div class="custom-pagination">
-								<ul class="pagination">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
+                            <div class="row">
+                               <div class="col-md-12">
+                                 <hd-paging current-page="{{current}}" max-page="{{pages}}" for="DanhSachDonDatHang"></hd-paging>
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<script>
+$(document).ready(function(){
+    $('ul.navbar-nav li').removeClass('active');
+    $('li.category').addClass('active');
+})
+</script>

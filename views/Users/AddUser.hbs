@@ -1,3 +1,6 @@
+{{#if Notify}}
+        <script>alert("Đăng ký thất bại");</script>
+    {{/if}}
  <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -46,26 +49,23 @@
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <input name="userID" type="text" class="form-control" placeholder="ID người dùng">
-                                                            </div>
-                                                            <div class="form-group">
                                                                 <input name="userName" type="text" class="form-control" placeholder="Họ tên người dùng">
                                                             </div>
-                                                            <div class="form-group">
-                                                                    <select name="authority" class="form-control">
-																		<option value="none" selected="" disabled="">Mức quyền</option>
-																		<option value="admin">admin</option>
-																		<option value="user">user</option>
-																	</select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            
+                                                           
                                                             <div class="form-group">
                                                                 <input name="email" type="text" class="form-control" placeholder="Email">
                                                             </div>
                                                             <div class="form-group">
                                                                 <input name="phoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                             <div class="form-group">
+                                                                    <select name="authority" class="form-control">
+																		<option value="none" selected="" disabled="">Mức quyền</option>
+																		<option value="admin">admin</option>
+																		<option value="user">user</option>
+																	</select>
                                                             </div>
                                                             <div class="form-group">
                                                                     <input name="password" type="text" class="form-control" placeholder="Mật khẩu">

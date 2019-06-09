@@ -4,7 +4,6 @@ mongoose.connect(url, {useNewUrlParser: true});
 
 
 var contact = new mongoose.Schema({
-    userID: 'string',
     userName: 'string',
     authority: 'string',
     email: 'string',

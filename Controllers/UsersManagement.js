@@ -1,27 +1,43 @@
 var contactModel=require('../model/modelUsers.js');
 
+// them vào thử 
+
+var Model = require('../Model/modelLogin');
+var model = new Model();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 class UserManagement{
     addUser(req,res){
         return res.render('Users/AddUser', { isLogin: true,title: 'Express' });
     }
-
-   
-    postAddUser(req,res)
-    {
-        var nguoidung={
-    'userID': req.body.userID,
-    'userName': req.body.userName,
-    'authority': req.body.authority,
-    'email': req.body.email,
-    'phoneNumber': req.body.phoneNumber,
-    'password': req.body.password
+    
+    async postAddUser(req,res){
+        var authority =req.body.authority || "";
+        var name = req.body.userName || "";
+        var email = req.body.email || "";
+        var password = req.body.password || "";
+        var phoneNumber = req.body.phoneNumber || "";
+        console.log(phoneNumber);
+        if(name && email && password && phoneNumber){
+            password = await bcrypt.hash(password, saltRounds);
+            var account = {
+                "userName" : name,
+                "email" : email,
+                "password" : password,
+                "phoneNumber" : phoneNumber,
+                "authority": authority
+            };
+            var result = await model.createAccount(account);
+            if(result){
+                res.render('Users/UserMangement',{Notify: true});
+            };
+            
         }
-        var dulieu= new contactModel(nguoidung);
-        dulieu.save();
-       return res.redirect('/TatCaNguoiDung')
+        return res.render('Users/AddUser',{Notify: true});
     }
+
     editUser(req,res){
-        // Get Product ID
         var userID = req.query.id;
         var query = {
             "_id" : userID
@@ -33,19 +49,16 @@ class UserManagement{
     }
 
     postEditUser(req,res){
-        // Get Product ID
         var userID = req.query.id;
         var query = {
             "_id" : userID
         };
         
         var nguoidung={
-            'userID': req.body.userID,
             'userName': req.body.userName,
             'authority': req.body.authority,
             'email': req.body.email,
             'phoneNumber': req.body.phoneNumber,
-            'password': req.body.password
                 }
             
         contactModel.findOneAndUpdate(query,nguoidung,{upsert:true},function(err,doc){
@@ -55,12 +68,25 @@ class UserManagement{
         });
     }
 
-
-   
     showUser(req,res){
 
-        contactModel.find({},function(err,dulieu){
-            return res.render('Users/UserManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
+        // contactModel.find({},function(err,dulieu){
+        //     return res.render('Users/UserManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
+        // })
+
+
+    var perPage = 10
+    var page = req.query.page || 1
+
+    contactModel
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function(err, order) {
+            contactModel.count().exec(function(err, count) {
+                if (err) return next(err)
+             res.render('Users/UserManagement', {isLogin: true,data: order,current: page,pages: Math.ceil(count / perPage)});
+            })
         })
     }
 

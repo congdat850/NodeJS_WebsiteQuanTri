@@ -51,11 +51,22 @@
                             <div class="product-buttons">
                                 <a href="/XoaSanPham/{{this.id}}"> <button type="button" class="button-default cart-btn">Xóa sản phẩm</button></a>
                             </div>
+                        </div>
                     </div>
+                    {{/each}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                     <hd-paging current-page="{{current}}" max-page="{{pages}}" for="DanhSachSanPham"></hd-paging>
                 </div>
-                 {{/each}}
             </div>
         </div>
     </div>
  </div>
+<script>
+$(document).ready(function(){
+    $('ul.navbar-nav li').removeClass('active');
+    $('li.category').addClass('active');
+})
+</script>
         

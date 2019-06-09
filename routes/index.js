@@ -47,6 +47,7 @@ router.post('/ThemSanPham',productManagement.sendImageProduct().single('AnhSanPh
 router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
 router.post('/ChinhSuaSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postEditProduct);
 // Order Management
+// thảy đổi hàm order chỗ ni nek
 router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
 router.get('/ThemDonDatHang', orderManagement.addOrder);
 router.get('/ChinhSuaDonDatHang', orderManagement.editOrder);

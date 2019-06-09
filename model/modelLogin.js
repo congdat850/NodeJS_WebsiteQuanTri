@@ -2,6 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://hoaidien:hoaidien0510@ds155606.mlab.com:55606/nodejs";
 var dbo;
 
+
 class Model{
     constructor(){
          //Connect dtb:

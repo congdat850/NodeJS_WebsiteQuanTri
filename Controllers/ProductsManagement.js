@@ -1,11 +1,21 @@
-var contactModel=require('../model/model.js');
+var contactModel=require('../model/modelProducts.js');
 var nameImg;
 
 class ProductsManagement{
 
     showListProducts(req,res){
-        contactModel.find({},function(err,dulieu){
-            return res.render('Products/ProductManagement', { isLogin: true,title: 'Sản phẩm',data:dulieu });
+    var perPage = 8
+    var page = req.query.page || 1
+
+    contactModel
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function(err, order) {
+            contactModel.count().exec(function(err, count) {
+                if (err) return next(err)
+             res.render('Products/ProductManagement', {isLogin: true,data: order,current: page,pages: Math.ceil(count / perPage)});
+            })
         })
         
     }
