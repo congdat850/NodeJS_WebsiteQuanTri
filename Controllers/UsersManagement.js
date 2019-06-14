@@ -99,9 +99,42 @@ class UserManagement{
         };
         contactModel.find(query,function(err,userData){
             if (userData.length !== 1) return res.redirect('/DanhSachNguoiDung');
-            return res.render('Users/UserInformation', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: userData });
+            return res.render('Users/UserInformation', { isLogin: true,title: 'Thông tin người dùng',data: userData });
         })
     }
+    async getUpdateInfo(req,res){
+        // Get session
+       var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+       var account = await model.getAccount({"email": sess.email});
+       return res.render('Users/update-info',{isLogin: true,title: "Tài khoản của tôi", account: account[0]});
+   }
+
+   async postUpdateInfo(req,res){
+    var sess = req.session;
+    if (typeof sess.email === 'undefined') {
+        return;
+    }
+    var sess = req.session;
+    var userName = req.body.name;
+    var phoneNumber = req.body.phone;
+    var password = req.body.password || "";
+    var accountUpdate = {
+        "userName": userName,
+        "phoneNumber": phoneNumber,
+    };
+    if(password){
+        password = await bcrypt.hash(password, saltRounds);
+        accountUpdate.password = password;
+    }
+
+    var result = await model.updateInfo(sess.email,accountUpdate);
+    return res.redirect('/ThongTinTaiKhoan');
+}
+
+
 
 }
 
