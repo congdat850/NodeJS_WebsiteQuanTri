@@ -46,4 +46,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+hbs.registerHelper('equal', function(context, options) {
+  var ret ="ahihi"
+  if (context=="Chưa giao")
+  {
+    return ret;
+  }
+      return options.fn(this)
+  
+});
+
 module.exports = app;

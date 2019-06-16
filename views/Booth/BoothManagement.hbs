@@ -31,208 +31,38 @@
         <div class="contacts-area mg-b-15">
             <div class="container-fluid">
                 <div class="row">
+                    {{#each booth}}
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="hpanel hblue contact-panel contact-panel-cs responsive-mg-b-30">
-                            <div class="panel-body custom-panel-jw">
-                                
-                                <img alt="logo" class="img-circle m-b" src="img/contact/samsung.jpg">
-                                
-                                <h3><a href="">SAMSUNG</a></h3>
-                                <p class="all-pro-ad">samsung</p>
-                                 <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                                
+                            <div class="panel-body custom-panel-jw">   
+                                {{!-- <img alt="logo" class="img-circle m-b" src="{{this.img}}"> --}}
+                                <h3><a href="">{{this.name}}</a></h3>
+                                <p class="all-pro-ad">{{this.name}}</p>
+                                 
+                            </div>
+                            <div class="course-des">
+                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>{{this.name}}</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm</b> {{this.amount}}</p>
+                            </div>
+                            <div class="product-buttons">
+                                <a href="/ChiTietGianHang?name={{this.name}}"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
+                            </div>
+                            <br>
+                            <div class="product-buttons">
+                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
+                            </div>
+                            <br>
+                            <div class="product-buttons">
+                                <a href="/XoaGianHang?id={{this.name}}"><button type="button" class="button-default cart-btn" >Xóa gian hàng</button></a>
+                            </div>
+                            <br>
+                            <div class="product-buttons">
+                                <a href="/ChinhSuaGianHang?id={{this._id}}"><button type="button" class="button-default cart-btn" >Chỉnh sửa gian hàng</button></a>
                             </div>
                             
-                            
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>Samsung</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm</b> 8 loại</p>
-                            </div>
-                            <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs responsive-mg-b-30">
-                            <div class="panel-body custom-panel-jw">
-                                <img alt="logo" class="img-circle m-b" src="img/contact/lg.jpg">
-                                <h3><a href="">LG</a></h3>
-                                <p class="all-pro-ad">lg</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>LG</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm</b> 8 loại</p>
-                            
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs responsive-mg-b-30 res-tablet-mg-t-30 dk-res-t-pro-30">
-                            <div class="panel-body custom-panel-jw">
-                                <img alt="logo" class="img-circle m-b" src="img/contact/iphone.jpg">
-                                <h3><a href="">IPHONE</a></h3>
-                                <p class="all-pro-ad">iphone</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>iphone</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b> 8 loại</p>
-                            </div>
-                            <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs res-tablet-mg-t-30 dk-res-t-pro-30">
-                            <div class="panel-body custom-panel-jw">
-                               
-                                <img alt="logo" class="img-circle m-b" src="img/contact/huawei.jpg">
-                                <h3><a href="">HUAWEI</a></h3>
-                                <p class="all-pro-ad">huawei</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>huawei</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b>8 loại</p>
-                                
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs mg-t-30">
-                            <div class="panel-body custom-panel-jw">
-                                
-                                <img alt="logo" class="img-circle m-b" src="img/contact/huawei.jpg">
-                                <h3><a href="">HUAWEI</a></h3>
-                                <p class="all-pro-ad">huawei</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>huawei</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b>8 loại</p>
-                                
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs mg-t-30">
-                            <div class="panel-body custom-panel-jw">
-                                
-                                <img alt="logo" class="img-circle m-b" src="img/contact/iphone.jpg">
-                                <h3><a href="">IPHONE</a></h3>
-                                <p class="all-pro-ad">iphone</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>iphone</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b>8 loại</p>
-                                
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs mg-t-30">
-                            <div class="panel-body custom-panel-jw">
-                                
-                                <img alt="logo" class="img-circle m-b" src="img/contact/lg.jpg">
-                                <h3><a href="">LG</a></h3>
-                                <p class="all-pro-ad">lg</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>LG</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b>8 loại</p>
-                                
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="hpanel hblue contact-panel contact-panel-cs mg-t-30">
-                            <div class="panel-body custom-panel-jw">
-                                
-                                <img alt="logo" class="img-circle m-b" src="img/contact/samsung.jpg">
-                                <h3><a href="">SAMSUNG</a></h3>
-                                <p class="all-pro-ad">samsung</p>
-                                <p>
-                                    Lorem ipsum dolor sit amet of, consectetur adipiscing elitable. Vestibulum tincidunt est vitae ultrices accumsan.
-                                </p>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>Samsung</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm: </b>8 loại</p>
-                                
-                            </div>
-                             <div class="product-buttons">
-                                <a href="/DanhSachSanPham"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

@@ -47,47 +47,62 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
-                                                                    <input name="productID" type="text" class="form-control" placeholder="ProductID">
+                                                                    <label>ID sản phẩm</label>
+                                                                    <input name="productID" type="text" required minlength="6" maxlength="20" class="form-control" placeholder="ProductID">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="name" type="text" class="form-control" placeholder="Tên Sản phẩm">
+                                                                    <label>Tên sản phẩm</label>
+                                                                    <input name="name" type="text" required minlength="6" maxlength="20" class="form-control" placeholder="Tên Sản phẩm">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="oldPrice" type="text" class="form-control" placeholder="Giá ban đầu của sản phẩm">
+                                                                    <label>Giá ban đầu</label>
+                                                                    <input name="oldPrice" type="text" required  class="form-control" placeholder="Giá ban đầu của sản phẩm">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="newPrice" type="text" class="form-control" placeholder="Giá mới của sản phẩm">
+                                                                    <label>Giá mới</label>
+                                                                    <input name="newPrice" type="text" required class="form-control" placeholder="Giá mới của sản phẩm">
                                                                 </div>
                                                               
                                                                 <div class="form-group">
+                                                                    <label>Gian hàng</label>
                                                                     <select name="producer" class="form-control">
-																		<option value="0">Samsung</option>
-																		<option value="1">Apple</option>
-                                                                        <option value="2">Huawei</option>
-                                                                        <option value="3">LG</option>
+                                                                        {{#each data}}
+																		<option value="{{this.name}}">{{this.name}}</option>
+																		{{/each}}
 																	</select>
                                                                 </div>
                                                                 <div class="form-group">
                                                                   <label for="AnhSanPham">Ảnh sản phẩm</label>
-                                                                  <input type="file" class="form-control-file" name="AnhSanPham" id="" placeholder="" aria-describedby="fileHelpId">
+                                                                  <input type="file" required class="form-control-file" name="AnhSanPham" id="" placeholder="" aria-describedby="fileHelpId">
                                                                   <small id="fileHelpId" class="form-text text-muted">Click để upload file</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
-                                                                    <input name="quantitySold" type="number" class="form-control" placeholder="Số lượng sản phẩm">
+                                                                    <label>Số lượng sản phẩm</label>
+                                                                    <input name="quantitySold" required type="number" class="form-control" placeholder="Số lượng sản phẩm">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="country" type="text" class="form-control" placeholder="Nơi sản xuất">
+                                                                    <label>Nơi sản xuất</label>
+                                                                    <input name="country" required minlength="6" maxlength="20" type="text" class="form-control" placeholder="Nơi sản xuất">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="starEvaluate" type="number" class="form-control" placeholder="Số sao đánh giá">
+                                                                    <label>Số sao đánh giá</label>
+                                                                    <select name="starEvaluate" class="form-control">
+																		<option value="0">5</option>
+																		<option value="1">4</option>
+                                                                        <option value="2">3</option>
+                                                                        <option value="3">2</option>
+                                                                        <option value="4">1</option>
+																	</select>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="dateUpdate" type="text" class="form-control" placeholder="Ngày mở bán">
+                                                                    <label>Ngày mở bán</label>
+                                                                    <input name="dateUpdate" required type="text" class="form-control" placeholder="Ngày mở bán">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <textarea name="description" placeholder="Miêu tả sản phẩm"></textarea>
+                                                                    <label>Miêu tả sản phẩm</label>
+                                                                    <textarea name="description" required minlength="6" maxlength="2000" placeholder="Miêu tả sản phẩm"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

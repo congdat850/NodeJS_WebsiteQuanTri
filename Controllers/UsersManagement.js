@@ -30,11 +30,12 @@ class UserManagement{
             };
             var result = await model.createAccount(account);
             if(result){
-                res.render('Users/UserMangement',{Notify: true});
+                // return res.render('Users/UserManagement',{isLogin: true, title: 'Danh sách người dùng',Notify: true});
+                return res.redirect('/TatCaNguoiDung');
             };
             
         }
-        return res.render('Users/AddUser',{Notify: true});
+        return res.render('Users/AddUser',{isLogin: true,title: 'Thêm người dùng',Notify: true});
     }
 
     editUser(req,res){
@@ -116,7 +117,7 @@ class UserManagement{
     var sess = req.session;
     if (typeof sess.email === 'undefined') {
         return;
-    }
+        }
     var sess = req.session;
     var userName = req.body.name;
     var phoneNumber = req.body.phone;
@@ -124,15 +125,15 @@ class UserManagement{
     var accountUpdate = {
         "userName": userName,
         "phoneNumber": phoneNumber,
-    };
+        };
     if(password){
         password = await bcrypt.hash(password, saltRounds);
         accountUpdate.password = password;
-    }
+                 }
 
     var result = await model.updateInfo(sess.email,accountUpdate);
     return res.redirect('/ThongTinTaiKhoan');
-}
+    }
 
 
 

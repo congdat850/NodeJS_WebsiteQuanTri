@@ -4,9 +4,10 @@ mongoose.connect(url, {useNewUrlParser: true});
 
 
 var order = new mongoose.Schema({
+    productID: "string",
     name: "string",
     newPrice: "string",
-    img: "string",
+    img :"string",
     userName: "string",
     email: "string",
     phoneNumber: "string",

@@ -44,7 +44,11 @@ router.get('/ThongKeDoanhSo', statics.salesStatics);
 // Booth
 router.get('/DanhSachGianHang', boothManagement.showListBooth);
 router.get('/ThemGianHang', boothManagement.addBooth);
+router.post('/ThemGianHang', boothManagement.postAddBooth);
 router.get('/ChinhSuaGianHang', boothManagement.editBooth);
+router.post('/ChinhSuaGianHang', boothManagement.postEditBooth);
+router.get('/ChiTietGianHang', boothManagement.showBoothDetails);
+router.get('/XoaGianHang', boothManagement.deleteBooth);
 //Product
 router.get('/DanhSachSanPham', productManagement.showListProducts);
 router.get('/ChinhSuaSanPham', productManagement.editProduct);
@@ -53,9 +57,13 @@ router.post('/ThemSanPham',productManagement.sendImageProduct().single('AnhSanPh
 router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
 router.post('/ChinhSuaSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postEditProduct);
 // Order Management
-// thảy đổi hàm order chỗ ni nek
 router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
 router.get('/ThemDonDatHang', orderManagement.addOrder);
+router.post('/ThemDonDatHang',orderManagement.postAddOrder);
 router.get('/ChinhSuaDonDatHang', orderManagement.editOrder);
+router.post('/ChinhSuaDonDatHang', orderManagement.postEditOrder);
+router.get('/XoaDonHang', orderManagement.deleteOrder);
+// router.get('/XoaDonHang', orderManagement.dedeteOrder);
+
 
 module.exports = router;

@@ -1,4 +1,5 @@
 var contactModel=require('../model/modelProducts.js');
+var booth=require('../model/modelBooth')
 var nameImg;
 
 class ProductsManagement{
@@ -21,7 +22,10 @@ class ProductsManagement{
     }
 
     addProduct(req,res){
-        return res.render('Products/AddProduct', { isLogin: true,title: 'Express' });
+        booth.find({}).exec(function(err,gianHang){
+            return res.render('Products/AddProduct', { isLogin: true,title: 'Express',data:gianHang });
+        })
+       
     }
 
     sendImageProduct() // hàm gửi hình ảnh lên
@@ -54,6 +58,7 @@ class ProductsManagement{
     }
     postAddProduct(req,res)
     {
+        console.log(req.body.name);
         var sanpham={
     'productID': req.body.productID,
     'name': req.body.name,

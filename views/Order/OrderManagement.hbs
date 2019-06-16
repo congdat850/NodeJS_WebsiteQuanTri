@@ -40,23 +40,27 @@
                                 <table>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Hình ảnh SP</th>
+                                        {{!-- <th>ID</th> --}}
+                                        <th>Hình</th>
                                         <th>Tên SP</th>
-                                        <th>Trạng thái đơn hàng</th>
+                                        <th>Trạng thái</th>
                                         <th>Tên người nhận</th>
                                         <th>Email người nhận</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
-                                        <th>Giá sản phẩm</th>
-                                        <th>Chỉnh sửa đơn hàng</th>
+                                        <th>Giá</th>
+                                        <th>Tùy chọn</th>
                                     </tr>
                                     {{#each order}}
                                     <tr>
                                         <td>{{@index}}</td>
-                                        <td><img src="{{this.img}}" alt="" /></td>
+                                        {{!-- <td>{{this.productID}}</td> --}}
+                                        <td><img src="{{this.img}}" alt=""> </td>
                                         <td>{{this.name}}</td>
                                         <td>
-                                            <button class="pd-setting">{{this.status}}</button>
+                                        {{this.status}}
+                
+                                            {{!-- <button class="pd-setting"></button> --}}
                                         </td>
                                         <td>{{this.userName}}</td>
                                         <td>{{this.email}}</td>
@@ -64,9 +68,8 @@
                                         <td>{{this.address}}</td>
                                         <td>{{this.newPrice}}</td>
                                         <td>
-                                            <a href="/ChinhSuaDonDatHang"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <a href="/ChinhSuaDonDatHang?id={{this._id}}"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                            <a href="/XoaDonHang?id={{this._id}}"> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     {{/each}}

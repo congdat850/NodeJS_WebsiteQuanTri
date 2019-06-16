@@ -38,7 +38,6 @@
                         <div class="product-payment-inner-st">
                             <ul id="myTabedu1" class="tab-review-design">
                                 <li class="active"><a href="#description">Thông tin cá nhân</a></li>
-                               
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
@@ -49,33 +48,42 @@
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <input name="userName" type="text" class="form-control" placeholder="Họ tên người dùng">
+                                                                <label>Họ Tên</label>
+                                                                <input name="userName" required minlength="6" maxlength="20" type="text" class="form-control" placeholder="Họ tên người dùng">
                                                             </div>
                                                            
                                                             <div class="form-group">
-                                                                <input name="email" type="text" class="form-control" placeholder="Email">
+                                                                <label>Email</label>
+                                                                <input name="email" required minlength="6" maxlength="20" type="text" class="form-control" placeholder="Email">
                                                             </div>
                                                             <div class="form-group">
-                                                                <input name="phoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
+                                                                <label>Số điện thoại:</label>
+                                                                <input name="phoneNumber" required minlength="6" maxlength="20" type="number" class="form-control" placeholder="Số điện thoại">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                              <div class="form-group">
-                                                                    <select name="authority" class="form-control">
-																		<option value="none" selected="" disabled="">Mức quyền</option>
+                                                                 <label>Quyền hạn</label>
+                                                                    <select name="authority" required class="form-control">
+																		{{!-- <option value="none" selected="" disabled="">Mức quyền</option> --}}
+                                                                        <option value="user">user</option>
 																		<option value="admin">admin</option>
-																		<option value="user">user</option>
 																	</select>
                                                             </div>
                                                             <div class="form-group">
-                                                                    <input name="password" type="text" class="form-control" placeholder="Mật khẩu">
+                                                                <label>Mật khẩu</label>
+                                                                    <input name="password" id="password" required minlength="6" maxlength="20" type="password" class="form-control" placeholder="Mật khẩu">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Nhập lại mật khẩu</label>
+                                                                    <input name="re-password" id="re-password" required minlength="6" maxlength="20" type="password" class="form-control" placeholder="Nhập lại mật khẩu">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Hoàn tất thêm mới</button>
+                                                                <button type="submit" name="submit" id="submit" class="btn btn-primary waves-effect waves-light">Hoàn tất thêm mới</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -90,3 +98,5 @@
                 </div>
             </div>
         </div>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="javascripts/updateInfo.js"></script>
