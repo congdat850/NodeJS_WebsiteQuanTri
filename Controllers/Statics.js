@@ -17,8 +17,8 @@ class Statics {
             .sort({ quantitySold: -1 })
             .limit(limit)
             .exec(function (err, order) {
-                console.log(order)
-                return res.render('Statics/Top10Product', { isLogin: true, title: 'Express', data: order });
+                console.log(order[0])
+                return res.render('Statics/Top10Product', { isLogin: true, title: 'Express', data: order,top1:order[0] });
             })
     }
 

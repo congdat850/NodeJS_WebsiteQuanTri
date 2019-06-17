@@ -23,6 +23,7 @@ router.post('/sign-up',loginController.postSignUp);
 router.get('/forgotPass',loginController.getForgotPass);
 router.get('/update-info',loginController.getUpdateInfo);
 router.post('/update-info',loginController.postUpdateInfo);
+router.get('/Thoat',loginController.logout);
 /* GET home page. */
 router.get('/home',statics.Top10Product);
 router.get('/Top10SanPhamBanChay',statics.Top10Product);
