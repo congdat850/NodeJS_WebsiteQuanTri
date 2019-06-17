@@ -126,6 +126,9 @@ class ProductsManagement{
         contactModel.findByIdAndRemove(id).exec();
         return res.redirect('/DanhSachSanPham');
     }
+
+
+    
 }
 
 module.exports = ProductsManagement;

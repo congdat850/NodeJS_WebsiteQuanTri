@@ -24,8 +24,9 @@ router.get('/forgotPass',loginController.getForgotPass);
 router.get('/update-info',loginController.getUpdateInfo);
 router.post('/update-info',loginController.postUpdateInfo);
 /* GET home page. */
-router.get('/home',statics.topTenProducts);
-router.get('/Top10SanPhamBanChay',statics.topTenProducts);
+router.get('/home',statics.Top10Product);
+router.get('/Top10SanPhamBanChay',statics.Top10Product);
+
 //User
 router.get('/TatCaNguoiDung', usersManagement.showUser);
 router.get('/XoaNguoiDung/:idDelete', usersManagement.deleteUser);
@@ -57,6 +58,7 @@ router.get('/ThemSanPham', productManagement.addProduct);
 router.post('/ThemSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postAddProduct);
 router.get('/XoaSanPham/:idDelete', productManagement.deleteProduct);
 router.post('/ChinhSuaSanPham',productManagement.sendImageProduct().single('AnhSanPham'),productManagement.postEditProduct);
+
 // Order Management
 router.get('/DanhSachDonDatHang', orderManagement.showListOrder);
 router.get('/ThemDonDatHang', orderManagement.addOrder);
@@ -64,7 +66,7 @@ router.post('/ThemDonDatHang',orderManagement.postAddOrder);
 router.get('/ChinhSuaDonDatHang', orderManagement.editOrder);
 router.post('/ChinhSuaDonDatHang', orderManagement.postEditOrder);
 router.get('/XoaDonHang', orderManagement.deleteOrder);
-// router.get('/XoaDonHang', orderManagement.dedeteOrder);
+
 
 
 module.exports = router;
