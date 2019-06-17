@@ -5,13 +5,15 @@ mongoose.connect(url, {useNewUrlParser: true});
 
 var order = new mongoose.Schema({
     productID: "string",
-    name: "string",
-    newPrice: "string",
-    img :"string",
+    quantity : "string",
     userName: "string",
     email: "string",
     phoneNumber: "string",
     address: "string",
-    status: "string"
+    status: "string",
+    date: "Number"
 },{collection:'Order'});
+
 module.exports=mongoose.model('Order', order);
+
+

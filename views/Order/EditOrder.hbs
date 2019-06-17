@@ -46,18 +46,22 @@
                                                     <form method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload" >
                                                         <div class="row">
                                                             
-                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                
-                                                                        
-                                                                
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
                                                                 <div class="form-group">
                                                                     <label>Chọn sản phẩm</label>
-                                                                    <select name="name" class="form-control" >
-                                                                        <option value="{{chinhsua.name}}" >{{chinhsua.name}}</option>
+                                                                    <select name="productID" class="form-control" >
                                                                          {{#each sanpham}}
-																		<option value="{{this.name}}">{{this.name}}</option>
+																		<option value="{{this.productID}}"
+                                                                            {{#equal this.productID ../chinhsua.productID}}
+                                                                              selected=""
+                                                                            {{/equal}}
+                                                                        >{{this.name}}</option>
                                                                         {{/each}}
 																	</select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Số lượng</label>
+                                                                    <input name="quantity" required="" type="number" class="form-control" value="{{chinhsua.quantity}}" min="1">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Tình trang đơn hàng</label>

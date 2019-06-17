@@ -48,12 +48,15 @@
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label>Chọn sản phẩm</label>
-                                                                    <select name="name" class="form-control" >
-                                                                        <option value="none" ></option>
+                                                                    <select name="productID" class="form-control" >
                                                                          {{#each sanpham}}
-																		<option value="{{this.name}}">{{this.name}}</option>
+																		<option value="{{this.productID}}">{{this.name}}</option>
                                                                         {{/each}}
 																	</select>
+                                                                    <div class="form-group">
+                                                                    <label>Số lượng</label>
+                                                                        <input name="quantity" required="" type="number" class="form-control" value="1" min="1">
+                                                                    </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Tình trang đơn hàng</label>

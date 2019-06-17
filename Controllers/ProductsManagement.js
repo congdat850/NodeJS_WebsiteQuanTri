@@ -70,7 +70,6 @@ class ProductsManagement{
     }
     postAddProduct(req,res)
     {
-        console.log(req.body.name);
         var sanpham={
     'productID': req.body.productID,
     'name': req.body.name,

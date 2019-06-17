@@ -90,6 +90,13 @@ class LoginController{
         var result = await model.updateInfo(sess.email,accountUpdate);
         return res.redirect('/update-info');
     }
+
+    logout(req,res){
+        req.session.destroy(function (err) {
+            if (err) throw err;
+        });
+        return res.redirect('/login');
+    }
 }
 
 module.exports = LoginController;
