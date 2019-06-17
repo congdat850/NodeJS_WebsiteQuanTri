@@ -5,6 +5,12 @@ var product=require('../model/modelProducts.js');
 class OrderManagement{
     showListOrder(req,res){
 
+    // kiểm tra phiên làm việc
+    var sess = req.session;
+    if (typeof sess.email === 'undefined') {
+        return res.redirect('/login');
+    }
+
     var perPage = 10
     var page = req.query.page || 1
 
@@ -21,6 +27,12 @@ class OrderManagement{
     }
 
     addOrder(req,res){
+        // kiểm tra phiên làm việc
+        var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+
         product.find({}).exec(function(err,sanpham){
             return res.render('Order/AddOrder', { isLogin: true,title: 'Express', sanpham:sanpham });
         })
@@ -50,6 +62,13 @@ class OrderManagement{
 
 
     editOrder(req,res){
+
+        // kiểm tra phiên làm việc
+        var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+       
         var id=req.query.id
         product.find({}).exec(function(err,sanpham){
             Order.find({"_id":id}).exec(function(err,chinhsua)

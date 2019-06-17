@@ -9,6 +9,12 @@ const saltRounds = 10;
 
 class UserManagement{
     addUser(req,res){
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
+
         return res.render('Users/AddUser', { isLogin: true,title: 'Express' });
     }
     
@@ -39,6 +45,12 @@ class UserManagement{
     }
 
     editUser(req,res){
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
+
         var userID = req.query.id;
         var query = {
             "_id" : userID
@@ -70,6 +82,12 @@ class UserManagement{
     }
 
     showUser(req,res){
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
+
     var perPage = 10
     var page = req.query.page || 1
 
@@ -91,9 +109,14 @@ class UserManagement{
         return res.redirect('/TatCaNguoiDung');
     }
 
-
     getInformation(req,res)
     {
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
+
         var userID = req.query.id;
         var query = {
             "_id" : userID
@@ -103,7 +126,11 @@ class UserManagement{
             return res.render('Users/UserInformation', { isLogin: true,title: 'Thông tin người dùng',data: userData });
         })
     }
+
     async getUpdateInfo(req,res){
+        
+        
+
         // Get session
        var sess = req.session;
        if (typeof sess.email === 'undefined') {
@@ -130,7 +157,6 @@ class UserManagement{
         password = await bcrypt.hash(password, saltRounds);
         accountUpdate.password = password;
                  }
-
     var result = await model.updateInfo(sess.email,accountUpdate);
     return res.redirect('/ThongTinTaiKhoan');
     }
@@ -140,7 +166,7 @@ class UserManagement{
         var id=req.params.id
         var status=req.params.status
         var thaydoi =""
-        console.log(thaydoi)
+        
         if(status=='khóa')
         {
             thaydoi={
@@ -152,6 +178,12 @@ class UserManagement{
                 'status':'khóa'
             }
         }
+        //  if(status==null)
+        // {
+        //     thaydoi={
+        //         'status':'khóa'
+        //     }
+        // }
         contactModel.findByIdAndUpdate(id,thaydoi).exec()
         console.log(thaydoi)
         return res.redirect('/TatCaNguoiDung');

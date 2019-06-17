@@ -46,24 +46,28 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
+                                                                    <label>ID sản phẩm</label>
                                                                     <input name="productID" type="text" class="form-control" placeholder="ProductID" value="{{data.productID}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Tên sản phẩm</label>
                                                                     <input name="name" type="text" class="form-control" placeholder="Tên sản phẩm" value="{{data.name}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Giá ban đầu</label>
                                                                     <input name="oldPrice" type="text" class="form-control" placeholder="Giá ban đầu của sản phẩm" value="{{data.oldPrice}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Giá mới</label>
                                                                     <input name="newPrice" type="text" class="form-control" placeholder="Giá mới của sản phẩm" value="{{data.newPrice}}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <select name="Loại sản phẩm" class="form-control">
-																			<option value="none" selected="" disabled="">Chọn loại sản phẩn</option>
-																			<option value="0">Samsung</option>
-																			<option value="1">Huawei</option>
-																			<option value="2">LG</option>
-																			<option value="3">Iphone</option>
+                                                                    <label>Gian hàng</label>
+                                                                    <select name="producer" class="form-control">
+																			<option value="{{data.producer}}" selected="" disabled="">{{data.producer}}</option>
+                                                                            {{#each gianHang}}
+																			<option value="{{this.name}}">{{this.name}}</option>
+                                                                            {{/each}}
 																		</select>
                                                                 </div>
                                                                 <div class="form-group">
@@ -74,19 +78,24 @@
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
                                                                 <div class="form-group">
+                                                                    <label>Số lượng sản phẩm</label>
                                                                     <input name="quantitySold" type="number" class="form-control" placeholder="Số lượng sản phẩm" value="{{data.quantitySold}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Nơi sản xuất</label>
                                                                     <input name="country" type="text" class="form-control" placeholder="Nơi sản xuất" value="{{data.country}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Số sao đánh giá</label>
                                                                     <input name="starEvaluate" type="number" class="form-control" placeholder="Số sao đánh giá" value="{{data.starEvaluate}}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Ngày mở bán</label>
                                                                     <input name="dateUpdate" type="text" class="form-control" placeholder="Ngày mở bán" value="{{data.dateUpdate}}">
                                                                 </div>
 
                                                                 <div class="form-group">
+                                                                    <label>Miêu tả sản phẩm</label>
                                                                     <textarea name="description" placeholder="Miêu tả sản phẩm" value="{{data.description}}">{{data.description}}</textarea>
                                                                 </div>
                                                             </div>

@@ -5,6 +5,12 @@ var nameImg;
 class ProductsManagement{
 
     showListProducts(req,res){
+        // kiểm tra phiên làm việc
+        var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+
     var perPage = 8
     var page = req.query.page || 1
 
@@ -22,6 +28,12 @@ class ProductsManagement{
     }
 
     addProduct(req,res){
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
+
         booth.find({}).exec(function(err,gianHang){
             return res.render('Products/AddProduct', { isLogin: true,title: 'Express',data:gianHang });
         })
@@ -80,6 +92,11 @@ class ProductsManagement{
     }
 
     editProduct(req,res){
+         // kiểm tra phiên làm việc
+         var sess = req.session;
+         if (typeof sess.email === 'undefined') {
+             return res.redirect('/login');
+         }
         // Get Product ID
         var productID = req.query.id;
         var query = {
@@ -87,7 +104,11 @@ class ProductsManagement{
         };
         contactModel.find(query,function(err,productData){
             if (productData.length !== 1) return res.redirect('/DanhSachSanPham');
-            return res.render('Products/EditProduct', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: productData[0] });
+            booth.find({}).exec(function(err,gianHang){
+                // return res.render('Products/AddProduct', { isLogin: true,title: 'Express',data:gianHang });
+                return res.render('Products/EditProduct', { isLogin: true,title: 'Chỉnh sửa sản phẩm',data: productData[0],gianHang:gianHang });
+            })
+           
         })
     }
 
@@ -118,7 +139,8 @@ class ProductsManagement{
         contactModel.findOneAndUpdate(query,sanpham,{upsert:true},function(err,doc){
             if (err) return res.send(500, { error: err });
             nameImg=null;
-            return res.redirect('/ChinhSuaSanPham?id='+ productID);
+            // return res.redirect('/ChinhSuaSanPham?id='+ productID);
+            return res.redirect('/DanhSachSanPham');
         });
     }
     deleteProduct(req,res){

@@ -41,23 +41,23 @@
                                  
                             </div>
                             <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Tên gian hàng: </b>{{this.name}}</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Số loại sản phẩm</b> {{this.amount}}</p>
+                                <p><span><i class="fas fa-arrow-right"></i></span> <b>Tên gian hàng: </b>{{this.name}}</p>
+                                <p><span><i class="fas fa-arrow-right"></i></span> <b>Số loại sản phẩm</b> {{this.amount}}</p>
                             </div>
                             <div class="product-buttons">
-                                <a href="/ChiTietGianHang?name={{this.name}}"><button type="button" class="button-default cart-btn" >Xem sản phẩm</button></a>
-                            </div>
-                            <br>
-                            <div class="product-buttons">
-                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" >Thêm sản phẩm</button></a>
+                                <a href="/ChiTietGianHang?name={{this.name}}"><button type="button" class="button-default cart-btn" > <i class="fas fa-eye"></i> Xem sản phẩm</button></a>
                             </div>
                             <br>
                             <div class="product-buttons">
-                                <a href="/XoaGianHang?id={{this.name}}"><button type="button" class="button-default cart-btn" >Xóa gian hàng</button></a>
+                                <a href="/ThemSanPham"><button type="button" class="button-default cart-btn" ><i class="fas fa-plus-square"></i> Thêm sản phẩm</button></a>
                             </div>
                             <br>
                             <div class="product-buttons">
-                                <a href="/ChinhSuaGianHang?id={{this._id}}"><button type="button" class="button-default cart-btn" >Chỉnh sửa gian hàng</button></a>
+                                <a href="/XoaGianHang?id={{this.name}}"><button type="button" class="button-default cart-btn" > <i class="fas fa-trash-alt"></i> Xóa gian hàng</button></a>
+                            </div>
+                            <br>
+                            <div class="product-buttons">
+                                <a href="/ChinhSuaGianHang?id={{this._id}}"><button type="button" class="button-default cart-btn" ><i class="fas fa-edit"></i> Chỉnh sửa gian hàng</button></a>
                             </div>
                             
                         </div>

@@ -3,6 +3,12 @@ var contactModel=require("../model/modelProducts")
 class Statics{
     Top10Product(req,res)
     {
+        // kiểm tra phiên làm việc
+        var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+
         var limit = 10
     
 
@@ -17,6 +23,12 @@ class Statics{
     }
     
     salesStatics(req,res){
+        // kiểm tra phiên làm việc
+        var sess = req.session;
+       if (typeof sess.email === 'undefined') {
+           return res.redirect('/login');
+       }
+
         return res.render('Statics/SalesStatistics', {isLogin: true,title: 'Express' });
     }
 }
