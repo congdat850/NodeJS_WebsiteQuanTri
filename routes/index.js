@@ -36,6 +36,7 @@ router.post('/ChinhSuaNguoiDung', usersManagement.postEditUser);
 router.get('/ThongTinChiTiet', usersManagement.getInformation);
 router.get('/ThongTinTaiKhoan', usersManagement.getUpdateInfo);
 router.post('/ThongTinTaiKhoan',usersManagement.postUpdateInfo);
+router.get('/KhoaVaMoKhoaTaiKhoan/:id/:status',usersManagement.changeStatusUser);
 
 
 

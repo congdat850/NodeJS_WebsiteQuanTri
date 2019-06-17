@@ -8,6 +8,7 @@ var contact = new mongoose.Schema({
     authority: 'string',
     email: 'string',
     phoneNumber: 'string',
-    password: 'string'
+    password: 'string',
+    status:'string'
 },{collection:'Users'});
 module.exports=mongoose.model('user', contact);

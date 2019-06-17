@@ -26,11 +26,11 @@ class UserManagement{
                 "email" : email,
                 "password" : password,
                 "phoneNumber" : phoneNumber,
-                "authority": authority
+                "authority": authority,
+                "status":"khóa"
             };
             var result = await model.createAccount(account);
             if(result){
-                // return res.render('Users/UserManagement',{isLogin: true, title: 'Danh sách người dùng',Notify: true});
                 return res.redirect('/TatCaNguoiDung');
             };
             
@@ -135,8 +135,27 @@ class UserManagement{
     return res.redirect('/ThongTinTaiKhoan');
     }
 
-
-
+    changeStatusUser(req,res)
+    {
+        var id=req.params.id
+        var status=req.params.status
+        var thaydoi =""
+        console.log(thaydoi)
+        if(status=='khóa')
+        {
+            thaydoi={
+                'status':'mở'
+            }
+        }
+        else {
+            thaydoi={
+                'status':'khóa'
+            }
+        }
+        contactModel.findByIdAndUpdate(id,thaydoi).exec()
+        console.log(thaydoi)
+        return res.redirect('/TatCaNguoiDung');
+    }
 }
 
 module.exports = UserManagement;
