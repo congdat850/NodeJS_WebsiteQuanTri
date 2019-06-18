@@ -43,8 +43,13 @@ class LoginController{
         var userName = req.body.username;
         var password = req.body.pass;
         // Get Info of account
+        var account1 = await model.getAccount({"email" : userName,"status":"mở"});
+        if(account1.length===1)
+        {
+            return res.render('Login/login', {isLoginFail1 : true});
+        }
         var account = await model.getAccount({"email" : userName,
-    "authority": "admin","status":"khóa"});
+        "authority": "admin","status":"khóa"});
         if(account.length === 1){
             var result = await bcrypt.compare(password, account[0].password);
             console.log(result);

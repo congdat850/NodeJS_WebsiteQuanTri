@@ -29,6 +29,9 @@
 	{{#if Notify}}
     	<script>alert("Đăng ký thành công");</script>
 	{{/if}}
+	{{#if isLoginFail1}}
+    	<script>alert("Đăng nhập thất bại, tài khoản đã bị khóa");</script>
+	{{/if}}
 	{{#if isLoginFail}}
     	<script>alert("Đăng nhập thất bại");</script>
 	{{/if}}
