@@ -2,7 +2,7 @@ var contactModel=require('../model/modelUsers.js');
 
 // them vào thử 
 
-var Model = require('../Model/modelLogin');
+var Model = require('../model/modelLogin');
 var model = new Model();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
